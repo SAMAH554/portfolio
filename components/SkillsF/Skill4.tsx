@@ -13,7 +13,7 @@ export default function Skill({}: Props) {
     }}
     transition={{duration:0.5}}
     whileInView={{opacity:1,x:0}}
-    src="https://cdn-icons-png.flaticon.com/512/6132/6132221.png"
+    src="https://img.icons8.com/color/512/postgreesql.png"
     className='rounded-full border border-gray-500 object-cover w-20 h-20 xl:w-27
     xl:h-27 filter group-hover:grayscale transition duration-300 ease-in-out'/>
     <div className='absolute opacity-0 group-hover:opacity-80 transition duration-300

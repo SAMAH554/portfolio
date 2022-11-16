@@ -1,10 +1,14 @@
 import React from 'react'
 import { SocialIcon } from "react-social-icons";
 import { motion, useMotionValue } from "framer-motion"
+import Link from 'next/link';
+import {Social} from "../typings"
 
-type Props = {}
+type Props = {
+  socials: Social[];
+};
 
-export default function Header({}: Props) {
+export default function Header({ socials}: Props) {
   return (
     <header className='sticky top-0 p-5 flex items-start justify-between msx-w-7xl mx-auto z-20
      xl:items-center'>
@@ -25,17 +29,18 @@ export default function Header({}: Props) {
       }}
        className="flex flex-row items-center">
         {/*Social icons*/}
-        <SocialIcon url="https://www.linkedin.com/in/samahshakir/" target={"_blank"}
-          fgColor='white'
-          ></SocialIcon>
-          <SocialIcon url="https://github.com/SAMAH554"
-          fgColor='white'
-          bgColor='transparent'></SocialIcon>
-          <SocialIcon url="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=samah.ilfath@gmail.com"
-          fgColor='white'
-          bgColor='transparent'></SocialIcon>
+        {socials.map((social) => (
+            <SocialIcon
+            key={social._id}
+             url={social.url} 
+             target={"_blank"}
+            fgColor='white'
+            bgColor='transparent'
+            ></SocialIcon>
+        ))}
+        
       </motion.div>
-
+      <Link href="#contact">
       <motion.div
       initial={{
         x : 500,
@@ -57,6 +62,7 @@ export default function Header({}: Props) {
           bgColor='transparent'/>
           <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>Get in touch</p>
       </motion.div>
+      </Link>
     </header>
 
   );
